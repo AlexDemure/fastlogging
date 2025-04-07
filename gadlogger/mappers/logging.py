@@ -1,11 +1,7 @@
 import logging
 import os
-from datetime import datetime
-from datetime import timezone
-from typing import Any
-from typing import Callable
-from typing import List
-from typing import Tuple
+from datetime import datetime, timezone
+from typing import Any, Callable, List, Tuple
 
 LOGGING_MESSAGE_FIELDS: List[Tuple[str, Callable[[logging.LogRecord], Any]]] = [
     ("timestamp", lambda record: datetime.fromtimestamp(record.created, tz=timezone.utc).isoformat()),
@@ -29,5 +25,6 @@ LOGGING_MESSAGE_FIELDS: List[Tuple[str, Callable[[logging.LogRecord], Any]]] = [
     ("container", lambda record: os.getenv("CONTAINER")),
     ("process", lambda record: record.process),
     ("thread", lambda record: record.thread),
-    ("context", lambda record: getattr(record, "context", None)),
+    ("stacktrace", lambda record: getattr(record, "stacktrace", None)),
+    ("exception", lambda record: getattr(record, "exception", None)),
 ]

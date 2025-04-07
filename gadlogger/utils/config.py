@@ -1,8 +1,7 @@
 import logging.config
 import sys
 
-from gadlogger import formatters
-from gadlogger import models
+from gadlogger import formatters, models
 from gadlogger.utils import modules
 
 

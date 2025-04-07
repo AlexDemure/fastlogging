@@ -1,13 +1,7 @@
 import logging
-from typing import Any
-from typing import Callable
-from typing import Dict
-from typing import List
-from typing import Optional
-from typing import Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple
 
-from gadlogger import const
-from gadlogger import mappers
+from gadlogger import const, mappers
 from gadlogger.utils import fields
 
 
@@ -23,27 +17,23 @@ class Formatter(logging.Formatter):
         self.hidden = hidden if hidden else []
         self.context = context if context else lambda: {}
 
-    def getcontext(self, record: logging.LogRecord) -> None:
-        context = {}
-
+    def enrich(self, record: logging.LogRecord) -> None:
         for field, func in self.message:
-            setattr(record, field, fields.to_empty(func(record)))
-
-        data = record.__dict__
+            setattr(record, field, func(record))
 
         if self.context:
-            data.update(self.context())
-
-        for key, value in data.items():
-            if not (key in const.LOGGING_RESERVED_FIELDS or key in {field for field, _ in self.message}):
-                context[key] = fields.to_empty(value)
-
-        if context:
-            setattr(record, "context", context)
+            for key, value in self.context().items():
+                setattr(record, key, value)
 
         if record.levelno >= logging.WARNING and record.exc_info:
             setattr(record, "stacktrace", self.formatException(record.exc_info))
+            setattr(record, "exception", str(record.exc_info[1]))
 
         if self.hidden:
             for key, value in record.__dict__.items():
-                setattr(record, key, fields.to_sensitive(value, self.hidden))
+                if key not in const.LOGGING_RESERVED_FIELDS:
+                    setattr(record, key, fields.parsehidden(value, self.hidden))
+
+        for key, value in record.__dict__.items():
+            if key not in const.LOGGING_RESERVED_FIELDS:
+                setattr(record, key, fields.parsenone(value))

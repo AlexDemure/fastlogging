@@ -1,12 +1,9 @@
 import hashlib
 import json
 import sys
-from dataclasses import dataclass
-from dataclasses import field
+from dataclasses import dataclass, field
 from types import ModuleType
-from typing import Dict
-from typing import Optional
-from typing import TextIO
+from typing import Dict, Optional, TextIO
 
 
 @dataclass
@@ -26,7 +23,7 @@ class Logger:
                     "level": self.level,
                     "stream": str(self.stream),
                     "module": str(self.module),
-                    "kwargs": self.kwargs,
+                    "kwargs": {k: v.__name__ if callable(v) else v for k, v in (self.kwargs or {}).items()},
                 },
                 sort_keys=True,
                 ensure_ascii=False,

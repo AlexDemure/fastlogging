@@ -1,6 +1,5 @@
 import json
-from typing import Any
-from typing import List
+from typing import Any, List
 
 from gadlogger import const
 
@@ -13,15 +12,19 @@ def to_format(value: Any) -> str:
     return f"%({value})s"
 
 
-def to_empty(value: Any) -> Any:
-    return const.LOGGING_NONE_VALUE if value is None else value
+def parsenone(data: Any) -> Any:
+    if isinstance(data, dict):
+        return {k: parsenone(v) for k, v in data.items()}
+    elif isinstance(data, list):
+        return [parsenone(i) for i in data]
+    return const.LOGGING_NONE_VALUE if data is None else data
 
 
-def to_sensitive(data: Any, hidden: List[str]) -> Any:
+def parsehidden(data: Any, hidden: List[str]) -> Any:
     if isinstance(data, dict):
         return {
-            k: (const.LOGGING_HIDDEN_VALUE if k.lower() in hidden else to_sensitive(v, hidden)) for k, v in data.items()
+            k: (const.LOGGING_HIDDEN_VALUE if k.lower() in hidden else parsehidden(v, hidden)) for k, v in data.items()
         }
     elif isinstance(data, list):
-        return [to_sensitive(i, hidden) for i in data]
+        return [parsehidden(i, hidden) for i in data]
     return data
