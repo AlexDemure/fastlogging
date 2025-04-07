@@ -1,0 +1,26 @@
+LOGGING_NONE_VALUE = "NOTSET"
+LOGGING_HIDDEN_VALUE = "HIDDEN"
+LOGGING_RESERVED_FIELDS = [
+    "name",
+    "msg",
+    "args",
+    "levelname",
+    "levelno",
+    "pathname",
+    "filename",
+    "module",
+    "exc_info",
+    "exc_text",
+    "stack_info",
+    "lineno",
+    "funcName",
+    "created",
+    "msecs",
+    "relativeCreated",
+    "thread",
+    "threadName",
+    "processName",
+    "process",
+    "message",
+    "taskName",
+]
