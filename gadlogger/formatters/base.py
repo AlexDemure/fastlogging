@@ -35,7 +35,7 @@ class Formatter(logging.Formatter):
             data.update(self.context())
 
         for key, value in data.items():
-            if not (key in const.LOGGING_RESERVED_FIELDS or key in self.message):
+            if not (key in const.LOGGING_RESERVED_FIELDS or key in {field for field, _ in self.message}):
                 context[key] = fields.to_empty(value)
 
         if context:

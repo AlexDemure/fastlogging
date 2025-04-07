@@ -16,6 +16,7 @@ LOGGING_MESSAGE_FIELDS: List[Tuple[str, Callable[[logging.LogRecord], Any]]] = [
     ("span_id", lambda record: getattr(record, "span_id", None)),
     ("user_id", lambda record: getattr(record, "user_id", None)),
     ("request_id", lambda record: getattr(record, "request_id", None)),
+    ("url", lambda record: getattr(record, "url", None)),
     ("location", lambda record: f"{record.pathname}:{record.funcName}:{record.lineno}"),
     ("elapsed", lambda record: getattr(record, "elapsed", None)),
     ("ip", lambda record: getattr(record, "ip", None)),
@@ -28,4 +29,5 @@ LOGGING_MESSAGE_FIELDS: List[Tuple[str, Callable[[logging.LogRecord], Any]]] = [
     ("container", lambda record: os.getenv("CONTAINER")),
     ("process", lambda record: record.process),
     ("thread", lambda record: record.thread),
+    ("context", lambda record: getattr(record, "context", None)),
 ]
