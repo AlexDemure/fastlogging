@@ -2,7 +2,7 @@ import json
 from typing import Any
 from typing import List
 
-from fastlogging import const
+from gadlogger import const
 
 
 def to_json(data: Any) -> str:

@@ -4,7 +4,7 @@ with open("requirements.txt") as f:
     requirements = f.read().splitlines()
 
 setup(
-    name="de_fastlogging",
+    name="de_gadlogger",
     version="0.0.1",
     packages=find_packages(),
     install_requires=requirements,
@@ -14,7 +14,7 @@ setup(
     description="A production-ready logging configuration module for Python.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/AlexDemure/fastlogging",
+    url="https://github.com/AlexDemure/gadlogger",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

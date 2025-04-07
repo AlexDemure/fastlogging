@@ -1,9 +1,9 @@
 import logging.config
 import sys
 
-from fastlogging import formatters
-from fastlogging import models
-from fastlogging.utils import modules
+from gadlogger import formatters
+from gadlogger import models
+from gadlogger.utils import modules
 
 
 def setup(*loggers: models.Logger) -> None:

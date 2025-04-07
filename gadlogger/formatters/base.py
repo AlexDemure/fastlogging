@@ -6,9 +6,9 @@ from typing import List
 from typing import Optional
 from typing import Tuple
 
-from fastlogging import const
-from fastlogging import mappers
-from fastlogging.utils import fields
+from gadlogger import const
+from gadlogger import mappers
+from gadlogger.utils import fields
 
 
 class Formatter(logging.Formatter):

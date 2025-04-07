@@ -1,7 +1,7 @@
 import logging
 
-from fastlogging.formatters.base import Formatter
-from fastlogging.utils import fields
+from gadlogger.formatters.base import Formatter
+from gadlogger.utils import fields
 
 
 class JSONFormatter(Formatter):

@@ -1,8 +1,8 @@
 import logging
 
-from fastlogging import const
-from fastlogging.formatters.base import Formatter
-from fastlogging.utils import fields
+from gadlogger import const
+from gadlogger.formatters.base import Formatter
+from gadlogger.utils import fields
 
 
 class PlainFormatter(Formatter):

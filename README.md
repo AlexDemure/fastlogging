@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://github.com/AlexDemure/fastgenerator">
-    <a href="https://ibb.co/zVHLZR6Q"><img src="https://i.ibb.co/fdGKHpDq/Frame-1349-4.png" alt="Frame-1349-4" border="0"></a>
+  <a href="https://github.com/AlexDemure/gadlogger">
+    <a href="https://ibb.co/KpdqfcxH"><img src="https://i.ibb.co/ksj8wV2F/logo.png" alt="logo" border="0"></a>
   </a>
 </p>
 
@@ -13,7 +13,7 @@
 ## Installation
 
 ```
-pip install defastlogging
+pip install gadlogger
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ pip install defastlogging
 import json
 import sys
 import logging
-from fastlogging import config, Logger
+from gadlogger import config, Logger
 
 config.setup(Logger("root", logging.INFO, json, sys.stdout))
 

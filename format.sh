@@ -1,2 +1,2 @@
-isort fastlogging/
-ruff format fastlogging/ --no-cache
+isort gadlogger/
+ruff format gadlogger/ --no-cache
