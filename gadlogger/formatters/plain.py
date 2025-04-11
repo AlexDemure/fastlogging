@@ -8,13 +8,13 @@ class PlainFormatter(Formatter):
     def format(self, record: logging.LogRecord) -> str:
         self.enrich(record)
         self._style._fmt = "{timestamp} {level} {logger} {message} {{{context}}}".format(
-            timestamp=fields.to_format("timestamp"),
-            level=f"[{fields.to_format('level')}]",
-            logger=fields.to_format("logger"),
-            message=fields.to_format("message"),
+            timestamp=fields.toformat("timestamp"),
+            level=f"[{fields.toformat('level')}]",
+            logger=fields.toformat("logger"),
+            message=fields.toformat("message"),
             context=", ".join(
                 [
-                    f"{key}: {fields.to_format(key)}"
+                    f"{key}: {fields.toformat(key)}"
                     for key, _ in self.message
                     if key not in {"timestamp", "level", "logger", "message"}
                 ]

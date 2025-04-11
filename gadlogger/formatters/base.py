@@ -1,16 +1,19 @@
 import logging
-from typing import Any, Callable, Dict, List, Optional, Tuple
+import typing
 
-from gadlogger import const, mappers
+from gadlogger import const
+from gadlogger import mappers
 from gadlogger.utils import fields
 
 
 class Formatter(logging.Formatter):
     def __init__(
         self,
-        message: Optional[List[Tuple[str, Callable[[logging.LogRecord], Any]]]] = None,
-        hidden: Optional[List[str]] = None,
-        context: Optional[Callable[[], Dict]] = None,
+        message: typing.Optional[
+            typing.List[typing.Tuple[str, typing.Callable[[logging.LogRecord], typing.Any]]]
+        ] = None,
+        hidden: typing.Optional[typing.List[str]] = None,
+        context: typing.Optional[typing.Callable[[], typing.Dict]] = None,
     ) -> None:
         super().__init__()
         self.message = message if message else mappers.LOGGING_MESSAGE_FIELDS

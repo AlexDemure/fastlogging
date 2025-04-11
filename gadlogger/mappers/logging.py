@@ -1,10 +1,15 @@
+import datetime
 import logging
 import os
-from datetime import datetime, timezone
-from typing import Any, Callable, List, Tuple
+import typing
 
-LOGGING_MESSAGE_FIELDS: List[Tuple[str, Callable[[logging.LogRecord], Any]]] = [
-    ("timestamp", lambda record: datetime.fromtimestamp(record.created, tz=timezone.utc).isoformat()),
+from gadify import dates
+
+LOGGING_MESSAGE_FIELDS: typing.List[typing.Tuple[str, typing.Callable[[logging.LogRecord], typing.Any]]] = [
+    (
+        "timestamp",
+        lambda record: dates.formatiso(datetime.datetime.fromtimestamp(record.created, tz=datetime.timezone.utc)),
+    ),
     ("level", lambda record: record.levelname),
     ("logger", lambda record: record.name),
     ("message", lambda record: record.getMessage()),

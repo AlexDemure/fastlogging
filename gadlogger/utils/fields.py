@@ -1,18 +1,13 @@
-import json
-from typing import Any, List
+import typing
 
 from gadlogger import const
 
 
-def to_json(data: Any) -> str:
-    return json.dumps(data, ensure_ascii=False, default=str)
-
-
-def to_format(value: Any) -> str:
+def toformat(value: typing.Any) -> str:
     return f"%({value})s"
 
 
-def parsenone(data: Any) -> Any:
+def parsenone(data: typing.Any) -> typing.Any:
     if isinstance(data, dict):
         return {k: parsenone(v) for k, v in data.items()}
     elif isinstance(data, list):
@@ -20,7 +15,7 @@ def parsenone(data: Any) -> Any:
     return const.LOGGING_NONE_VALUE if data is None else data
 
 
-def parsehidden(data: Any, hidden: List[str]) -> Any:
+def parsehidden(data: typing.Any, hidden: typing.List[str]) -> typing.Any:
     if isinstance(data, dict):
         return {
             k: (const.LOGGING_HIDDEN_VALUE if k.lower() in hidden else parsehidden(v, hidden)) for k, v in data.items()

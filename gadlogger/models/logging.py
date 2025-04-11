@@ -1,18 +1,18 @@
+import dataclasses
 import hashlib
 import json
 import sys
-from dataclasses import dataclass, field
-from types import ModuleType
-from typing import Dict, Optional, TextIO
+import types
+import typing
 
 
-@dataclass
+@dataclasses.dataclass
 class Logger:
     name: str
     level: int
-    module: Optional[ModuleType] = None
-    stream: Optional[TextIO] = sys.stdout
-    kwargs: Dict = field(default_factory=dict)
+    module: typing.Optional[types.ModuleType] = None
+    stream: typing.Optional[typing.TextIO] = sys.stdout
+    kwargs: typing.Dict = dataclasses.field(default_factory=dict)
 
     @property
     def id(self) -> str:

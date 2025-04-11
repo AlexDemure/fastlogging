@@ -1,8 +1,9 @@
 import logging
 
+from gadify import json
+
 from gadlogger import const
 from gadlogger.formatters.base import Formatter
-from gadlogger.utils import fields
 
 
 class JSONFormatter(Formatter):
@@ -20,4 +21,4 @@ class JSONFormatter(Formatter):
         if context:
             root["context"] = context
 
-        return fields.to_json(root)
+        return json.tojson(root)
