@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/AlexDemure/gadlogging">
-    <a href="https://ibb.co/9m5Bwnm9"><img src="https://i.ibb.co/vCnfs1Cx/logo.png" alt="logo" border="0"></a>
+    <a href="https://ibb.co/VpBD9SCB"><img src="https://i.ibb.co/vvzmqPdz/logo.png" alt="logo" border="0"></a>
   </a>
 </p>
 
