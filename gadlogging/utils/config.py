@@ -1,10 +1,10 @@
 import logging.config
 import sys
 
-from gadify import modules
+from gadutils import modules
 
-from gadlogger import formatters
-from gadlogger import models
+from gadlogging import formatters
+from gadlogging import models
 
 
 def setup(*loggers: models.Logger) -> None:

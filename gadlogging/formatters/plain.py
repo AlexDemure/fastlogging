@@ -1,7 +1,7 @@
 import logging
 
-from gadlogger.formatters.base import Formatter
-from gadlogger.utils import fields
+from gadlogging.formatters.base import Formatter
+from gadlogging.utils import fields
 
 
 class PlainFormatter(Formatter):

@@ -3,7 +3,7 @@ import logging
 import os
 import typing
 
-from gadify import dates
+from gadutils import dates
 
 LOGGING_MESSAGE_FIELDS: typing.List[typing.Tuple[str, typing.Callable[[logging.LogRecord], typing.Any]]] = [
     (

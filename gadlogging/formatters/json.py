@@ -1,9 +1,9 @@
 import logging
 
-from gadify import json
+from gadutils import json
 
-from gadlogger import const
-from gadlogger.formatters.base import Formatter
+from gadlogging import const
+from gadlogging.formatters.base import Formatter
 
 
 class JSONFormatter(Formatter):

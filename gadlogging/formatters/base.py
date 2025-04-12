@@ -1,9 +1,9 @@
 import logging
 import typing
 
-from gadlogger import const
-from gadlogger import mappers
-from gadlogger.utils import fields
+from gadlogging import const
+from gadlogging import mappers
+from gadlogging.utils import fields
 
 
 class Formatter(logging.Formatter):

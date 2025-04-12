@@ -4,8 +4,8 @@ with open("requirements.txt") as f:
     requirements = f.read().splitlines()
 
 setup(
-    name="gadlogger",
-    version="0.0.4",
+    name="gadlogging",
+    version="0.0.1",
     packages=find_packages(),
     install_requires=requirements,
     entry_points={},
@@ -14,7 +14,7 @@ setup(
     description="A production-ready logging configuration module for Python.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/AlexDemure/gadlogger",
+    url="https://github.com/AlexDemure/gadlogging",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

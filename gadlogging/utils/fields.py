@@ -1,6 +1,6 @@
 import typing
 
-from gadlogger import const
+from gadlogging import const
 
 
 def toformat(value: typing.Any) -> str:
